@@ -75,7 +75,7 @@ const ProjectV2 = ({ isDesktop, clientHeight }) => {
               />
               <motion.div
                 layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 relative w-[95%]"
+                className="grid-projects grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 relative w-[95%]"
               >
                 <AnimatePresence>
                   {filtered.slice(0, showProject).map((project, index) => (

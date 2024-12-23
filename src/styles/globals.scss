@@ -291,3 +291,9 @@ body {
   // font-family: theme("fontFamily.mono");
 }
 
+// project grid card
+@media screen and (min-width: 1800px) {
+  .grid-projects {
+      width: 100% !important;
+  }
+}
