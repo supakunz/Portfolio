@@ -245,7 +245,7 @@ export const PROJECTS = [
     image: "/projects/bookstore.webp",
     blurImage: "/projects/bookstore.webp",
     description: "Bookstore using NextJs + TS 📚",
-    gradient: ["#A8DADC", "#7ab9e0"],
+    gradient: ["#3A4D6F", "#708daa"],
     url: "https://bookstore-two-steel.vercel.app/",
     tech: ["typescript", "nextJS", "tailwind"],
     tag: ["frontend"],
