@@ -276,7 +276,7 @@ export const PROJECTS = [
     blurImage: "/projects/dashboard_image.webp",
     description: "Admin Dashboard using NextJs + MUI 🎃",
     gradient: ["#f857a6", "#ff5858"],
-    url: "https://adminz-dashboard.vercel.app/login",
+    url: "https://adminz-dashboard.vercel.app",
     tech: ["nextJS", "tailwind", "materialui", "nextauth"],
     tag: ["fullstack"],
   },
