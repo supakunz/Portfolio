@@ -181,7 +181,7 @@ export const SKILLS = [
 export const experiences = [
   {
     id: 1,
-    title: "Frontend Developer",
+    title: "FullStack Developer",
     company: "FullStack Developer Bootcamp | Westride",
     duration: "(April 2024 - August 2024)",
   },

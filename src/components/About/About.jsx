@@ -32,7 +32,7 @@ const About = () => {
                 Who I am?
               </h1>
               <h2 className="text-[1rem] text-justify -tracking-[0.5px] lg:-tracking-[1px] 2xl:-tracking-[1.1px] font-medium md:max-w-[539px] w-[99.2vw] mt-2 pr-7 md:pr-0">
-                My name is Supakun Thata. I am Frontend Developer. I am a quick
+                My name is Supakun Thata. I am FullStack Developer. I am a quick
                 learner with a self-learning attitude. I love to learn and
                 explore new technologies, passionate about problem-solving and
                 like almost all the stacks of web application development.
