@@ -66,7 +66,7 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I'm Frontend Developer",
+  "I'm Fullstack Developer",
   "I like to learn things",
   "I develop things for the web",
 ];
