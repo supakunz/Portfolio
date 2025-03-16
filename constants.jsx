@@ -325,5 +325,5 @@ export const personalData = {
   twitter: "https://x.com/GuNz246448",
   devUsername: "NEOSPEX",
   resume:
-    "https://drive.google.com/file/d/1W6ewtg6mlrHc5uVtp2IQF1BNbgqV1r-n/view?usp=sharing",
+    "https://drive.google.com/file/d/1jHFQ2Ce8tuQlBA_xJbLy6BdpZLjAWx-1/view?usp=drive_link",
 };
