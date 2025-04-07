@@ -60,7 +60,7 @@ const Contact = ({ isDesktop }) => {
     <>
       <section
         ref={sectionRef}
-        id={MENULINKS[4].ref}
+        id={MENULINKS[5].ref}
         className="w-full relative select-none section-container"
       >
         <div className="w-full absolute top-0 py-20 z-10 bg-gradient-to-b from-black shadow-black transition-all" />

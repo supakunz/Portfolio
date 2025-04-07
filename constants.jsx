@@ -56,6 +56,10 @@ export const MENULINKS = [
     ref: "experience",
   },
   {
+    name: "Education",
+    ref: "education",
+  },
+  {
     name: "Projects",
     ref: "projects",
   },
@@ -181,21 +185,36 @@ export const SKILLS = [
 export const experiences = [
   {
     id: 1,
-    title: "Full Stack Developer",
-    company: "Full Stack Development Bootcamp | Westride",
-    duration: "(April 2024 - August 2024)",
-  },
-  {
-    id: 2,
     title: "Mechanical Engineer",
     company: "Site Engineer Air Conditioning | First Technology",
     duration: "(Oct 2023 - Mar 2024)",
   },
   {
-    id: 3,
+    id: 2,
     title: "Gnss RTK Navigation",
     company: "Internship Python Developer | GISTDA",
     duration: "(Apr 2022 - Dec 2022)",
+  },
+];
+
+export const education = [
+  {
+    id: 3,
+    title: "Road to Data Engineer",
+    company: "DataTH School",
+    duration: "(Jan 2025 - Mar 2025)",
+  },
+  {
+    id: 4,
+    title: "Full Stack Development Bootcamp",
+    company: "Westride Institute of Technology",
+    duration: "(Apr 2024 - Aug 2024)",
+  },
+  {
+    id: 5,
+    title: "Mechanical Engineering",
+    company: "Naresuan University",
+    duration: "(May 2019 - Apr 2023)",
   },
 ];
 
