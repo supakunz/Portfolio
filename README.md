@@ -22,7 +22,7 @@ Portfolio Website is developed using ReactJS TailwindCSS SCSS for the client and
       <li>Responsive with all devices</li>
   </ul>
 
-## 🏆 Technologyies Used
+## 🏆 Tech Stack
   <i>Frontend :</i>
   <ul>
       <li>ReactJS</li>
