@@ -291,6 +291,31 @@ body {
   // font-family: theme("fontFamily.mono");
 }
 
+.skills-marquee {
+  overflow: visible !important;
+  overflow-y: visible !important;
+  padding: 0 0.5rem;
+}
+
+.skills-marquee .rfm-marquee,
+.skills-marquee .rfm-initial-child-container,
+.skills-marquee .rfm-child {
+  overflow: visible;
+}
+
+.skills-marquee .rfm-marquee {
+  padding: 0.3rem 0;
+}
+
+.skills-marquee .rfm-child {
+  position: relative;
+  padding: 0 0.15rem;
+}
+
+.skills-marquee .rfm-child:hover {
+  z-index: 20;
+}
+
 // project grid card
 @media screen and (min-width: 1800px) {
   .grid-projects {

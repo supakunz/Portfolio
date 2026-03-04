@@ -16,10 +16,10 @@ const About = () => {
 
   const renderSkillCard = (skill, id, extraClass = "mx-2 md:mx-3") => (
     <div
-      className={`w-32 sm:w-36 min-w-[8rem] h-fit flex flex-col items-center justify-center transition-all duration-500 rounded-lg group relative hover:scale-[1.06] cursor-pointer ${extraClass}`}
+      className={`w-32 sm:w-36 min-w-[8rem] h-fit flex flex-col items-center justify-center rounded-lg group relative cursor-pointer overflow-visible transform-gpu will-change-transform transition-transform duration-300 hover:z-[30] hover:-translate-y-1 hover:scale-[1.03] ${extraClass}`}
       key={`${skill.tools}-${id}`}
     >
-      <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
+      <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-400/35 transition-all duration-300 group-hover:shadow-[0_8px_18px_rgba(112,0,255,0.09)]">
         <div className="flex -translate-y-[1px] justify-center">
           <div className="w-3/4">
             <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
@@ -118,13 +118,14 @@ const About = () => {
               </div>
             </div>
             <div
-              className="w-full max-w-full overflow-hidden my-4"
+              className="w-full max-w-full overflow-x-hidden overflow-y-visible my-4 py-4 px-2 md:px-3"
               data-aos="fade-up"
               data-aos-duration="1500"
               data-aos-once="true"
             >
               <Marquee
                 key={activeSkillGroup}
+                className="skills-marquee"
                 gradient={false}
                 speed={70}
                 pauseOnHover={true}
