@@ -124,7 +124,6 @@ const About = () => {
               data-aos-once="true"
             >
               <Marquee
-                key={activeSkillGroup}
                 className="skills-marquee"
                 gradient={false}
                 speed={70}
@@ -132,7 +131,7 @@ const About = () => {
                 pauseOnClick={true}
                 delay={0}
                 play={true}
-                direction={activeSkillGroup === "fullstack" ? "left" : "right"}
+                direction="left"
               >
                 {activeSkills.map((skill, id) =>
                   renderSkillCard(skill, id, "mx-2 md:mx-3")
