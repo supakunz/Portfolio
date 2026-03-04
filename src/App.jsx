@@ -18,8 +18,23 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    AOS.init();
-  }, []);
+    if (isLoading) return;
+
+    const shouldDisableAOS = () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    AOS.init({
+      once: true,
+      duration: 1200,
+      easing: "ease-out-cubic",
+      offset: 40,
+      mirror: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
+      disable: shouldDisableAOS,
+    });
+    window.requestAnimationFrame(() => AOS.refresh());
+  }, [isLoading]);
 
   return (
     <>

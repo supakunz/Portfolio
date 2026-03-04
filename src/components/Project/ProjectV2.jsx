@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { MENULINKS, PROJECTS } from "../../../constants";
 import Card from "./Card";
 import "swiper/css";
@@ -12,12 +11,16 @@ import Filter from "../Filter/Filter";
 import { AnimatePresence, motion } from "framer-motion";
 
 const ProjectV2 = ({ isDesktop, clientHeight }) => {
-  const [projectData, setProjectData] = useState(PROJECTS); // Data ของหนังทั้งหมด
-  const [filtered, setFiltered] = useState([]); // Data ของหนังที่ filter แล้ว
+  const [filtered, setFiltered] = useState(PROJECTS); // Data ของหนังที่ filter แล้ว
   const [activeGenre, setActiveGenre] = useState("all"); // Action เพื่อเลือกประเภทของหนัง
   const [showProject, setShowProject] = useState(6);
   const sectionRef = useRef(null);
   const sectionTitleRef = useRef(null);
+  const visibleProjects = useMemo(
+    () => filtered.slice(0, showProject),
+    [filtered, showProject]
+  );
+  const canShowMore = filtered.length > visibleProjects.length;
 
   return (
     <>
@@ -32,6 +35,8 @@ const ProjectV2 = ({ isDesktop, clientHeight }) => {
         <img
           src="/hero.svg"
           alt="Hero"
+          loading="lazy"
+          decoding="async"
           className="absolute top-[0px] w-full h-full max-h-[750px] object-cover"
         />
         <div className="relative z-[11]">
@@ -67,7 +72,7 @@ const ProjectV2 = ({ isDesktop, clientHeight }) => {
           >
             <div className="flex items-center justify-center flex-col w-[100vw] gap-[5rem] h-full">
               <Filter
-                projectData={projectData}
+                projectData={PROJECTS}
                 setFiltered={setFiltered}
                 activeGenre={activeGenre}
                 setActiveGenre={setActiveGenre}
@@ -77,14 +82,15 @@ const ProjectV2 = ({ isDesktop, clientHeight }) => {
                 layout
                 className="grid-projects grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 relative w-[95%]"
               >
-                <AnimatePresence>
-                  {filtered.slice(0, showProject).map((project, index) => (
+                <AnimatePresence initial={false} mode="popLayout">
+                  {visibleProjects.map((project, index) => (
                     <motion.div
-                      animate={{ opacity: 1, scale: 1 }}
-                      initial={{ opacity: 0, scale: 0 }}
-                      exit={{ opacity: 0, scale: 0 }}
-                      layout
-                      key={index}
+                      key={project.name}
+                      layout="position"
+                      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.96, y: -10 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     >
                       <Card
                         classes={
@@ -98,8 +104,7 @@ const ProjectV2 = ({ isDesktop, clientHeight }) => {
                   ))}
                 </AnimatePresence>
               </motion.div>
-              {filtered.length > 6 &&
-              filtered.length != filtered.slice(0, showProject).length ? (
+              {filtered.length > 6 && canShowMore ? (
                 <button
                   onClick={() => setShowProject(showProject + 3)}
                   className="absolute bottom-[-3.5rem] animate-bounce btn-project p-[0.35rem_0.9rem] rounded-md"

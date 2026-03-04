@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './Loader.module.scss'
 
 const Loader = ({ time }) => {
+  const [number, setNumber] = useState(0)
 
-  var [number, setNumber] = useState(0)
+  useEffect(() => {
+    let current = 0
+    let timeoutId
 
-  const counTer = async () => {
-    const count = setInterval(() => {
-      setNumber(number += 1)
-      if (number >= 100) {
-        clearInterval(count);
-        setTimeout(() => {
-          return time(false)
+    const intervalId = window.setInterval(() => {
+      current += 1
+      setNumber(current)
+
+      if (current >= 100) {
+        window.clearInterval(intervalId)
+        timeoutId = window.setTimeout(() => {
+          time(false)
         }, 800)
       }
     }, 40)
-  }
 
-  useEffect(() => {
-    counTer();
-  }, [])
+    return () => {
+      window.clearInterval(intervalId)
+      if (timeoutId) {
+        window.clearTimeout(timeoutId)
+      }
+    }
+  }, [time])
 
   return (
     <>

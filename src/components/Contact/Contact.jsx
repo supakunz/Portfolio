@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { MENULINKS, personalData } from "../../../constants";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Contact = ({ isDesktop }) => {
+const Contact = () => {
   // const [contact, setContact] = useState([])
   const URL = import.meta.env.VITE_APP_API;
   const sectionRef = useRef(null);
@@ -23,7 +23,7 @@ const Contact = ({ isDesktop }) => {
     const id = toast.loading("Please wait...", { position: "top-center" });
     await axios
       .post(`${URL}/contact`, data)
-      .then((res) => {
+      .then(() => {
         toast.update(id, {
           render: "Successfully sent to the server.",
           type: "success",
@@ -34,7 +34,7 @@ const Contact = ({ isDesktop }) => {
         });
         reset();
       })
-      .catch((err) => {
+      .catch(() => {
         toast.update(id, {
           render: "Faild sent to the server.",
           type: "error",
@@ -48,14 +48,6 @@ const Contact = ({ isDesktop }) => {
       });
   };
 
-  useEffect(() => {
-    try {
-      axios.get(`${URL}/contact`).then((res) => console.log(res.data));
-    } catch (error) {
-      console.log("Failed to connect to server.");
-    }
-  }, []);
-
   return (
     <>
       <section
@@ -67,6 +59,8 @@ const Contact = ({ isDesktop }) => {
         <img
           src="/hero.svg"
           alt="Hero"
+          loading="lazy"
+          decoding="async"
           className="absolute top-[0] h-[100%] object-cover"
         />
         <div className="hidden lg:flex flex-col items-center absolute top-[26%] right-[-2rem] xl:right-[2rem] ">
@@ -111,7 +105,7 @@ const Contact = ({ isDesktop }) => {
                       required
                     />
                     <label
-                      for="name"
+                      htmlFor="name"
                       className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500"
                     >
                       Name
@@ -135,7 +129,7 @@ const Contact = ({ isDesktop }) => {
                       required
                     />
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500"
                     >
                       Email
@@ -158,7 +152,7 @@ const Contact = ({ isDesktop }) => {
                       required
                     ></textarea>
                     <label
-                      for="message"
+                      htmlFor="message"
                       className="absolute left-3 -top-6 bg-transparent text-sm leading-7 text-indigo-500 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:left-3 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-indigo-500"
                     >
                       Message

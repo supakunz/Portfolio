@@ -1,27 +1,43 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
 
 const Card = ({ project, classes, isDesktop }) => {
-  const { name, image, blurImage, description, gradient, url, tech } = project;
+  const { name, image, description, gradient, url } = project;
   const projectCard = useRef(null);
   let additionalClasses = "";
   if (classes) {
     additionalClasses = classes;
   }
 
-  const options = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-    gyroscope: false,
-  };
+  const options = useMemo(
+    () => ({
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      gyroscope: false,
+    }),
+    []
+  );
 
   useEffect(() => {
-    VanillaTilt.init(projectCard.current, options);
-  }, [projectCard]);
+    const cardNode = projectCard.current;
+    if (!cardNode) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+
+    if (prefersReducedMotion || !hasFinePointer) return;
+
+    VanillaTilt.init(cardNode, options);
+
+    return () => {
+      cardNode.vanillaTilt?.destroy();
+    };
+  }, [options]);
 
   return (
     <>
@@ -47,14 +63,15 @@ const Card = ({ project, classes, isDesktop }) => {
           <img
             src="/project-bg.svg"
             alt="project"
-            className="absolute w-full h-full top-0 left-0 object-cover opacity-100 will-change-transform"
+            loading="lazy"
+            decoding="async"
+            className="absolute w-full h-full top-0 left-0 object-cover opacity-100"
           />
           <img
             src={image}
             alt={name}
-            fill
-            placeholder="blur"
-            blurDataURL={blurImage}
+            loading="lazy"
+            decoding="async"
             className={`${styles.projectImage} z-0`}
           />
           <div
@@ -86,6 +103,8 @@ const Card = ({ project, classes, isDesktop }) => {
                   } mb-4 relative left-[-4.5rem] h-[38px] w-[38px] [@media(min-width:2000px)]:h-[52px] [@media(min-width:2000px)]:w-[52px]`}
                   src={`/skills/${el}.svg`}
                   alt={el}
+                  loading="lazy"
+                  decoding="async"
                   height={52}
                   width={52}
                   key={el}

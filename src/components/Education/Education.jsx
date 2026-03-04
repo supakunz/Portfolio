@@ -17,6 +17,8 @@ const Education = () => {
         <img
           src="/hero.svg"
           alt="Hero"
+          loading="lazy"
+          decoding="async"
           className="absolute top-[0] h-[100%] object-cover"
         />
         <div
@@ -50,6 +52,8 @@ const Education = () => {
                         <img
                           src="/blur-23.svg"
                           alt="Hero"
+                          loading="lazy"
+                          decoding="async"
                           width={1080}
                           height={200}
                           className="absolute bottom-0 opacity-80"

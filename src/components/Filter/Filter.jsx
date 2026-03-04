@@ -16,14 +16,15 @@ const Filter = ({
   useEffect(() => {
     if (activeGenre === "all") {
       // active === 0
-      return setFiltered(projectData); // set Data หนังทั้งหมดลงใน filtered
+      setFiltered(projectData); // set Data หนังทั้งหมดลงใน filtered
+      return;
     }
     // active != 0
-    const filtered = projectData.filter(
+    const filteredProjects = projectData.filter(
       (project) => project.tag.includes(activeGenre) // * filter genre_ids #[35, 1] ที่มีค่า เหมือน 35 or 28 ใน array โดยใช้ includes ที่ retrun เป็น boolean
     );
-    return setFiltered(filtered); // set Data ที่ผ่านก่ร filter ลงใน filtered
-  }, [activeGenre]);
+    setFiltered(filteredProjects); // set Data ที่ผ่านก่ร filter ลงใน filtered
+  }, [activeGenre, projectData, setFiltered]);
 
   return (
     <div className="relative w-full">

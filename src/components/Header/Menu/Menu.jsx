@@ -1,16 +1,22 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { MENULINKS } from '../../../../constants'
 
 const Menu = () => {
   useEffect(() => {
-    const menuoption = document.querySelectorAll('a[href^="#"]');
+    const checkbox = document.querySelector(".checkbox-toggle");
+    if (!checkbox) return;
 
-    menuoption.forEach((item) => {
-      item.addEventListener('click', () => {
-        const checkbox = document.querySelector(".checkbox-toggle");
-        checkbox.checked = false;
-      });
-    });
+    const handleLinkClick = (event) => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link) return;
+      checkbox.checked = false;
+    };
+
+    document.addEventListener("click", handleLinkClick);
+
+    return () => {
+      document.removeEventListener("click", handleLinkClick);
+    };
   }, []);
 
   return (

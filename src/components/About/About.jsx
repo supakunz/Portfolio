@@ -30,6 +30,8 @@ const About = () => {
             <img
               src={skill.img}
               alt={skill.tools}
+              loading="lazy"
+              decoding="async"
               width={40}
               height={40}
               className="h-full w-auto rounded-lg"
@@ -52,6 +54,8 @@ const About = () => {
         <img
           src="/hero.svg"
           alt="Hero"
+          loading="lazy"
+          decoding="async"
           className="absolute top-[0] h-[100%] object-cover"
         />
         <div className="flex flex-col top-20 z-10 select-none w-full">
