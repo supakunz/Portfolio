@@ -25,6 +25,14 @@ import typescript from "./public/skills/typescript.svg";
 import reactquery from "./public/skills/react-query.svg";
 import materialui from "./public/skills/materialui.svg";
 import redis from "./public/skills/redis.svg";
+import postgresql from "./public/skills/postgresql.svg";
+import aws from "./public/skills/aws.svg";
+import gcp from "./public/skills/gcp.svg";
+import docker from "./public/skills/docker.svg";
+import airflow from "./public/skills/airflow.svg";
+import pandas from "./public/skills/pandas.svg";
+import powerbi from "./public/skills/powerbi.svg";
+import looker from "./public/skills/looker.svg";
 
 export const METADATA = {
   author: "Supakun Thata",
@@ -34,7 +42,7 @@ export const METADATA = {
   keywords: [
     "Supakun Thata",
     "Frontend Developer",
-    "React Native Developer",
+    "Data Engineering",
     "Software Engineer",
     "Portfolio",
     "Devfolio",
@@ -70,9 +78,9 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I'm Fullstack Developer",
-  "I like to learn things",
-  "I develop things for the web",
+  "I'm a Fullstack Developer",
+  "I build apps & pipelines",
+  "I turn data into products",
 ];
 
 export const SOCIAL_LINKS = [
@@ -103,7 +111,7 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-export const SKILLS = [
+export const SKILLS_FULLSTACK = [
   {
     tools: "Html",
     img: html,
@@ -149,10 +157,6 @@ export const SKILLS = [
     img: git,
   },
   {
-    tools: "Python",
-    img: python,
-  },
-  {
     tools: "Sass",
     img: sass,
   },
@@ -182,15 +186,66 @@ export const SKILLS = [
   },
 ];
 
+export const SKILLS_DATA_ENGINEERING = [
+  {
+    tools: "Python",
+    img: python,
+  },
+  {
+    tools: "Pandas",
+    img: pandas,
+  },
+  {
+    tools: "Airflow",
+    img: airflow,
+  },
+  {
+    tools: "Docker",
+    img: docker,
+  },
+  {
+    tools: "Aws",
+    img: aws,
+  },
+  {
+    tools: "Gcp",
+    img: gcp,
+  },
+  {
+    tools: "PostgreSQL",
+    img: postgresql,
+  },
+  {
+    tools: "Mysql",
+    img: mysql,
+  },
+  {
+    tools: "PowerBI",
+    img: powerbi,
+  },
+  {
+    tools: "Looker",
+    img: looker,
+  },
+];
+
+export const SKILLS = [...SKILLS_FULLSTACK, ...SKILLS_DATA_ENGINEERING];
+
 export const experiences = [
   {
     id: 1,
+    title: "Data Engineer",
+    company: "Data Solution Team | JipJipMoney",
+    duration: "(Oct 2025 - Present)",
+  },
+  {
+    id: 2,
     title: "Mechanical Engineer",
     company: "Site Engineer Air Conditioning | First Technology",
     duration: "(Oct 2023 - Mar 2024)",
   },
   {
-    id: 2,
+    id: 3,
     title: "Gnss RTK Navigation",
     company: "Internship Python Developer | GISTDA",
     duration: "(Apr 2022 - Dec 2022)",
@@ -327,7 +382,47 @@ export const PROJECTS = [
     gradient: ["#00416A", "#E4E5E6"],
     url: "https://github.com/SupakunZ/GNSS_RTK",
     tech: ["python", "numpy"],
-    tag: ["other"],
+    tag: ["data-engineering"],
+  },
+  {
+    name: "Book Sales Pipeline",
+    image: "/projects/bookrevenue.png",
+    blurImage: "/projects/bookrevenue.png",
+    description: "End-To-End Data Pipeline on GCP 📚",
+    gradient: ["#5800ca", "#b37afd"],
+    url: "https://www.notion.so/End-to-End-Data-Pipeline-for-Book-Sales-on-GCP-1cb20b6dac9d802aa613cc64292066df?pvs=4",
+    tech: ["airflow", "gcp", "pandas", "looker"],
+    tag: ["data-engineering"],
+  },
+  {
+    name: "Employee Data Pipeline",
+    image: "/projects/empdatafusion.png",
+    blurImage: "/projects/empdatafusion.png",
+    description: "End-To-End Data Pipeline on GCP 👽",
+    gradient: ["#45B649", "#DCE35B"],
+    url: "https://github.com/supakunz/ETL-Pipeline-Datafusion-GCP",
+    tech: ["airflow", "gcp", "pandas", "looker"],
+    tag: ["data-engineering"],
+  },
+  {
+    name: "Uber Data Pipeline",
+    image: "/projects/uberpipline.png",
+    blurImage: "/projects/uberpipline.png",
+    description: "End-To-End Data Pipeline on GCP 🚗",
+    gradient: ["#f857a6", "#ff5858"],
+    url: "https://github.com/supakunz/Uber-Pipeline-GCP",
+    tech: ["airflow", "gcp", "pandas", "powerbi"],
+    tag: ["data-engineering"],
+  },
+  {
+    name: "Reddit Data Pipeline",
+    image: "/projects/reddit-aws.png",
+    blurImage: "/projects/reddit-aws.png",
+    description: "End-To-End Data Pipeline on AWS 🤖",
+    gradient: ["#536976", "#BBD2C5"],
+    url: "https://github.com/supakunz/ETL-Reddit-Pipeline-AWS",
+    tech: ["airflow", "aws", "pandas", "docker"],
+    tag: ["data-engineering"],
   },
 ];
 
@@ -344,5 +439,5 @@ export const personalData = {
   twitter: "https://x.com/GuNz246448",
   devUsername: "NEOSPEX",
   resume:
-    "https://drive.google.com/file/d/1jHFQ2Ce8tuQlBA_xJbLy6BdpZLjAWx-1/view?usp=drive_link",
+    "https://drive.google.com/drive/folders/1GRcaBHYbOkJj2YxkCWBkup0LeSPaAgdH?usp=drive_link",
 };

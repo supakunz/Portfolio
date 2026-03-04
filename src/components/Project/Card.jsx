@@ -38,7 +38,7 @@ const Card = ({ project, classes, isDesktop }) => {
         }}
       >
         <div
-          className={` h-[24rem] w-[100%] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 flex flex-col justify-between max-w-full`}
+          className={`h-[24rem] [@media(min-width:2000px)]:h-[28rem] w-[100%] bg-black ${styles.ProjectTile} rounded-3xl relative p-6 [@media(min-width:2000px)]:p-8 flex flex-col justify-between max-w-full`}
           style={{
             background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
           }}
@@ -70,7 +70,7 @@ const Card = ({ project, classes, isDesktop }) => {
             }}
           />
           <h1
-            className="font-medium text-3xl sm:text-3xl z-10 pl-2 transform-gpu"
+            className="font-medium text-3xl sm:text-3xl [@media(min-width:2000px)]:text-[2.4rem] z-10 pl-2 transform-gpu"
             style={{ transform: "translateZ(3rem)" }}
           >
             {name}
@@ -83,18 +83,18 @@ const Card = ({ project, classes, isDesktop }) => {
                 <img
                   className={`${
                     i % 2 === 0 && "ml-14"
-                  } mb-4 relative left-[-4.5rem]`}
+                  } mb-4 relative left-[-4.5rem] h-[38px] w-[38px] [@media(min-width:2000px)]:h-[52px] [@media(min-width:2000px)]:w-[52px]`}
                   src={`/skills/${el}.svg`}
                   alt={el}
-                  height={38}
-                  width={38}
+                  height={52}
+                  width={52}
                   key={el}
                 />
               ))}
             </div>
           </div>
           <h2
-            className="text-[17px] z-10 tracking-wide font-medium text-white transform-gpu"
+            className="text-[17px] [@media(min-width:2000px)]:text-[1.35rem] z-10 tracking-wide font-medium text-white transform-gpu"
             style={{ transform: "translateZ(0.8rem)" }}
           >
             {description}

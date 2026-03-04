@@ -98,14 +98,15 @@ const Filter = ({
             />
             <label
               onClick={() => {
-                setActiveGenre("other");
+                setActiveGenre("data-engineering");
                 setShowProject(6);
               }}
               style={{ index: 3 }}
               className="label"
               htmlFor="rd-4"
             >
-              <span className="tracking-wider">Other</span>
+              <span className="tracking-wider data-eng-full">Data Eng</span>
+              <span className="tracking-wider data-eng-short">DE</span>
             </label>
             <div className="bar"></div>
             <div className="slidebar"></div>{" "}

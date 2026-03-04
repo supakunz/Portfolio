@@ -20,9 +20,16 @@
     bottom: unset !important;
 }
 
+@media screen and (min-width: 2000px) {
+  .projectImage {
+    width: 19rem !important;
+    top: 2rem !important;
+    right: 0.5rem !important;
+  }
+}
+
 .techIcons {
     transform: rotate(-16deg) translateZ(2rem);
     will-change: transform;
 }
-
 

@@ -47,7 +47,7 @@ html {
   }
 
   @media (min-width: 2000px) {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
@@ -295,5 +295,57 @@ body {
 @media screen and (min-width: 1800px) {
   .grid-projects {
       width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .section-container,
+  .slid-container,
+  .carousel-container {
+    max-width: min(94vw, 1900px) !important;
+  }
+
+  .section-container,
+  .slid-container,
+  .carousel-container {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+
+  .education-grid,
+  .experience-grid {
+    gap: 2.4rem !important;
+  }
+
+  .timeline-card-content {
+    padding: 1rem !important;
+  }
+
+  .timeline-card-row {
+    gap: 1.4rem !important;
+    padding: 1rem 0.75rem !important;
+  }
+
+  .timeline-card-duration {
+    font-size: 0.9rem !important;
+  }
+
+  .timeline-card-title {
+    font-size: 1.4rem !important;
+    line-height: 1.18;
+  }
+
+  .timeline-card-company {
+    font-size: 1rem !important;
+  }
+
+  .timeline-card-icon-svg {
+    width: 2.35rem !important;
+    height: 2.35rem !important;
+  }
+
+  .btn-project {
+    font-size: 1.05rem;
+    padding: 0.6rem 1.25rem !important;
   }
 }

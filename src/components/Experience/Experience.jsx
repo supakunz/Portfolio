@@ -11,7 +11,7 @@ const Experience = () => {
     <>
       <section
         id={MENULINKS[2].ref}
-        className=" w-full flex md:items-center py-8 2xl:container mx-auto xl:px-20 md:px-12 px-4 min-h-screen relative select-none"
+        className="w-full flex md:items-center py-8 section-container min-h-screen relative select-none"
         style={{ opacity: "1" }}
       >
         <div className="w-full absolute top-0 py-20 z-10 bg-gradient-to-b from-black shadow-black transition-all" />
@@ -34,7 +34,7 @@ const Experience = () => {
             </div>
           </div>
           <div className="py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+            <div className="experience-grid grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               <div
                 className="flex justify-center items-center"
                 data-aos="fade-right"
@@ -57,7 +57,7 @@ const Experience = () => {
                       key={experience.id}
                       identifier={`experience-${experience.id}`}
                     >
-                      <div className="p-3 relative">
+                      <div className="p-3 relative timeline-card-content">
                         <img
                           src="/blur-23.svg"
                           alt="Hero"
@@ -66,19 +66,19 @@ const Experience = () => {
                           className="absolute bottom-0 opacity-80"
                         />
                         <div className="flex justify-center">
-                          <p className="text-xs sm:text-sm text-[#16f2b3]">
+                          <p className="text-xs sm:text-sm text-[#16f2b3] timeline-card-duration">
                             {experience.duration}
                           </p>
                         </div>
-                        <div className="flex items-center gap-x-8 px-3 py-5">
-                          <div className="text-violet-500 transition-all duration-300 hover:scale-125">
-                            <BsPersonWorkspace size={36} />
+                        <div className="flex items-center gap-x-8 px-3 py-5 timeline-card-row">
+                          <div className="text-violet-500 transition-all duration-300 hover:scale-125 timeline-card-icon">
+                            <BsPersonWorkspace className="timeline-card-icon-svg" />
                           </div>
                           <div>
-                            <p className="text-base sm:text-xl mb-2 font-medium uppercase">
+                            <p className="text-base sm:text-xl mb-2 font-medium uppercase timeline-card-title">
                               {experience.title}
                             </p>
-                            <p className="text-sm sm:text-base">
+                            <p className="text-sm sm:text-base timeline-card-company">
                               {experience.company}
                             </p>
                           </div>
