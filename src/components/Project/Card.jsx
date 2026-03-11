@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import styles from "./ProjectTile.module.scss";
+import { shouldReduceMotion } from "../../utils/motion-preference";
 
 const Card = ({ project, classes, isDesktop }) => {
   const { name, image, description, gradient, url } = project;
@@ -25,9 +26,7 @@ const Card = ({ project, classes, isDesktop }) => {
     const cardNode = projectCard.current;
     if (!cardNode) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = shouldReduceMotion();
     const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
     if (prefersReducedMotion || !hasFinePointer) return;

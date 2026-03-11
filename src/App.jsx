@@ -13,15 +13,13 @@ import "aos/dist/aos.css";
 import ScrollToTop from "./components/helper/scroll-to-top";
 import ProjectV2 from "./components/Project/ProjectV2";
 import Education from "./components/Education/Education";
+import { shouldReduceMotion } from "./utils/motion-preference";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isLoading) return;
-
-    const shouldDisableAOS = () =>
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     AOS.init({
       once: true,
@@ -31,7 +29,7 @@ function App() {
       mirror: false,
       debounceDelay: 50,
       throttleDelay: 99,
-      disable: shouldDisableAOS,
+      disable: shouldReduceMotion,
     });
     window.requestAnimationFrame(() => AOS.refresh());
   }, [isLoading]);

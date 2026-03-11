@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import Lottie from "lottie-react";
+import { shouldReduceMotion } from "../../utils/motion-preference";
 
 const AnimationLottie = ({ animationPath, width = "80%" }) => {
   const lottieRef = useRef(null);
@@ -10,7 +11,7 @@ const AnimationLottie = ({ animationPath, width = "80%" }) => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMotionPreference = () => {
-      setCanAnimate(!mediaQuery.matches);
+      setCanAnimate(!shouldReduceMotion());
     };
 
     updateMotionPreference();

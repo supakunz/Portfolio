@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa6";
+import { shouldReduceMotion } from "../../utils/motion-preference";
 
 const BASE_BTN_CLS =
   "fixed bottom-8 right-6 z-50 flex items-center rounded-full bg-gradient-to-r from-[#9f55ff] to-[#7000ff] p-[0.7rem] hover:text-xl transition-opacity duration-300 ease-out";
@@ -36,9 +37,7 @@ const ScrollToTop = () => {
   }, []);
 
   const onClickBtn = () => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = shouldReduceMotion();
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
   };
 

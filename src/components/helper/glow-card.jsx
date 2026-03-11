@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { shouldReduceMotion } from "../../utils/motion-preference";
 
 const CONFIG = {
   proximity: 40,
@@ -30,9 +31,7 @@ const GlowCard = ({ children, identifier }) => {
     );
     card.style.setProperty("--active", String(CONFIG.opacity));
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = shouldReduceMotion();
     const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
     if (prefersReducedMotion || !hasFinePointer) {
