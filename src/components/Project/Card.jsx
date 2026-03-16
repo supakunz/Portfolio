@@ -95,20 +95,25 @@ const Card = ({ project, classes, isDesktop }) => {
             className={`${styles.techIcons} w-1/2 h-full absolute left-24 top-0 items-center sm:flex hidden `}
           >
             <div className="flex flex-col pb-8">
-              {project.tech.map((el, i) => (
-                <img
-                  className={`${
-                    i % 2 === 0 && "ml-14"
-                  } mb-4 relative left-[-4.5rem] h-[38px] w-[38px] [@media(min-width:2000px)]:h-[52px] [@media(min-width:2000px)]:w-[52px]`}
-                  src={`/skills/${el}.svg`}
-                  alt={el}
-                  loading="lazy"
-                  decoding="async"
-                  height={52}
-                  width={52}
-                  key={el}
-                />
-              ))}
+              {project.tech.map((el, i) => {
+                const iconSizeClass =
+                  el === "dbt"
+                    ? "h-[46px] w-[74px] [@media(min-width:2000px)]:h-[62px] [@media(min-width:2000px)]:w-[100px] -translate-x-2"
+                    : "h-[38px] w-[38px] [@media(min-width:2000px)]:h-[52px] [@media(min-width:2000px)]:w-[52px]";
+
+                return (
+                  <img
+                    className={`${i % 2 === 0 ? "ml-14" : ""} mb-4 relative left-[-4.5rem] object-contain ${iconSizeClass}`}
+                    src={`/skills/${el}.svg`}
+                    alt={el}
+                    loading="lazy"
+                    decoding="async"
+                    height={52}
+                    width={52}
+                    key={el}
+                  />
+                );
+              })}
             </div>
           </div>
           <h2

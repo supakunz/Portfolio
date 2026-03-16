@@ -78,7 +78,7 @@ export const MENULINKS = [
 ];
 
 export const TYPED_STRINGS = [
-  "I'm a Fullstack Developer",
+  "I'm a Software Engineer",
   "I build apps & pipelines",
   "I turn data into products",
 ];
@@ -422,6 +422,16 @@ export const PROJECTS = [
     gradient: ["#536976", "#BBD2C5"],
     url: "https://github.com/supakunz/ETL-Reddit-Pipeline-AWS",
     tech: ["airflow", "aws", "pandas", "docker"],
+    tag: ["data-engineering"],
+  },
+    {
+    name: "Modern Data Pipeline",
+    image: "/projects/elt_dbt.png",
+    blurImage: "/projects/etl_dbt.png",
+    description: "ELT Pipeline with dbt on GCP ❄️",
+    gradient: ["#536976", "#BBD2C5"],
+    url: "https://github.com/supakunz/Modern-Data-Platform",
+    tech: ["airflow", "gcp", "dbt", "docker"],
     tag: ["data-engineering"],
   },
 ];
